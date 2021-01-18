@@ -27,7 +27,7 @@ def findPair(arr,sum):
   #loop till search space is exhausted
   while low < high:
     if arr[low] + arr[high] == sum:
-      print("Pair found!!")
+      print("Pair found at index",low,"and",high)    #index in the sorted array
       return 
     if arr[low] + arr[high] < sum:
       low += 1
