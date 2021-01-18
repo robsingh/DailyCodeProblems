@@ -41,3 +41,21 @@ if __name__ == "__main__":
   arr = [8,7,2,5,3,1]
   sum = 10
   findPair(arr,sum)
+  
+ 
+#o(n) solution using Hashing, the most optimized solution
+def findPair(arr,sum):
+  dict = {}
+  for i,e in enumerate(arr):
+    if sum - e in dict:
+      print("Pair found at index: ",dict.get(sum-e),"and",i)
+      return 
+    dict[e] = i #store index of the current element in the dictionary
+   
+ print("No other pairs found!")
+
+if __name__ == "__main__":
+  arr = [8,7,2,5,3,1]
+  sum = 10
+  findPair(arr,sum)
+     
