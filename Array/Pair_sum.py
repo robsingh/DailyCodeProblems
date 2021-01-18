@@ -10,7 +10,7 @@ def findPair(arr,sum):
         print("Pair found at index",i,"and",j)
         return 
       
-  print("No Pair found")
+  print("No Pair found!!!")
   
   if __name__ == "__main__":
     arr = [2,5,7,8,7]
