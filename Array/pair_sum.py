@@ -28,7 +28,7 @@ def findPair(arr,sum):
   while low < high:
     if arr[low] + arr[high] == sum:
       print("Pair found at index",low,"and",high)    #index in the sorted array
-      return 
+      return          #if you want to return all the pairs, then remove 'return' keyword, and replace it with 'continue'
     if arr[low] + arr[high] < sum:
       low += 1
     else:
@@ -49,7 +49,7 @@ def findPair(arr,sum):
   for i,e in enumerate(arr):
     if sum - e in dict:
       print("Pair found at index: ",dict.get(sum-e),"and",i)
-      return 
+      return    #if you want to return all the pairs, then remove 'return' keyword, and replace it with 'continue'
     dict[e] = i #store index of the current element in the dictionary
    
  print("No other pairs found!")
