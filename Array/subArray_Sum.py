@@ -1,4 +1,5 @@
 #Check if array contains a sub-array having sum=0
+#This code deals with sub-arrays which are contiguous, i.e. occupy consecutive positions in the array.
 
 def check_Array(arr):
   #create an empty set to store sum of elements of each sublist where 0 <= i < len(arr)
