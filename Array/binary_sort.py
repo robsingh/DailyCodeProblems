@@ -1,5 +1,5 @@
 #Given a binary array, sort it in linear time and constant space. The output should print all zeroes followed by all ones.
-#time complexity id O(n)
+#time complexity is O(n)
 
 def sort(arr):
   k = 0 #stores index of next available position
