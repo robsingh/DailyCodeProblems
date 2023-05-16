@@ -31,8 +31,11 @@ def check_rectangle_overlap(rectangles):
             x2,y2 = rect2["top_left"]
             w2,h2 = rect2["dimensions"]
 
-            if x1 < x2 + w2 and x1 + w1 > x2 and y1 < y2 + h2 and y1 + h1 > y2:
-                return True
+            #checking for overlap in the x direction
+            if x1 < x2 + w2 and x1 + w1 > x2:
+                #checking for overlap in the y direction
+                if y1 < y2 + h2 and y1 + h1 > y2:
+                    return True
     return False
 
 
