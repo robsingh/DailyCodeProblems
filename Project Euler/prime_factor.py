@@ -31,3 +31,8 @@ def largest_prime(number:int):
     
 number = 600851475143
 print(largest_prime(number))
+
+'''
+time complexity - O(number ** 1/2)
+space complexity - O(1)
+'''
