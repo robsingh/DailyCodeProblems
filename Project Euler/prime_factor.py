@@ -15,7 +15,7 @@ def largest_prime(number:int):
 
     # keep dividing number by current factor until it is divisible
     while number % factor == 0:
-        n //= factor
+        number //= factor
 
     # move on to next odd number
     factor = 3
