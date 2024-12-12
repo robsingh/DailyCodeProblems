@@ -26,20 +26,54 @@ Find the 13 adjacent digits in the 1000-digit number that have the greatest prod
 '''
 
 def find_greatest_product(number, k):
-    max_product = 0
-    n = len(number)
+    # brute-force
+    # max_product = 0
+    # n = len(number)
     
-    for i in range(n-k+1):  #iterating through all possible windows of size 'k'
-        # convert the current window to integers and compute the product
-        product = 1
-        for digit in number[i:i + k]:
-            product *= int(digit)
+    # for i in range(n-k+1):  #iterating through all possible windows of size 'k'
+    #     # convert the current window to integers and compute the product
+    #     product = 1
+    #     for digit in number[i:i+k]:
+    #         product *= int(digit)
 
-        # update max_product if the current product is greater
-        max_product = max(max_product, product)
+    #     # update max_product if the current product is greater
+    #     max_product = max(max_product, product)
+    
+    # return max_product
+
+    # optimized-approach - sliding window
+    
+    # Instead of recalculating the product for all 13 digits in the window, adjust the product by:
+    # Dividing by the digit that is sliding out of the window.
+    # Multiplying by the digit that is sliding into the window.
+
+    max_product = 0
+    current_product = 1
+    zero_count = 0
+    n = len(number)
+
+    for i in range(n):
+        digit = int(number[i])
+        
+        # edge case - dividing by zero is undefined. Reset the product and start afresh after encountering a '0'.
+        if digit == 0:
+            zero_count += 1
+        else:
+            current_product *= digit
+        
+        # maintain the sliding window
+        if i >= k:
+            outgoing_digit = int(number[i-k])
+            if outgoing_digit == 0:
+                zero_count -= 1
+            else:
+                current_product //= outgoing_digit
+        
+        # update the max_product only when there are no zeroes in the window
+        if zero_count == 0 and i >= k - 1:
+            max_product = max(max_product, current_product)
     
     return max_product
-
 
 number_str = (
     "73167176531330624919225119674426574742355349194934"
